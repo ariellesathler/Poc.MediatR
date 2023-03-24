@@ -3,13 +3,15 @@ using Poc.MediatR.Dtos;
 
 namespace Poc.MediatR.Handlers
 {
-    public class RequestValidationAHandler : IRequestHandler<RequestValidationA>
+    public class RequestValidationAHandler : IRequestHandler<RequestValidationA, HandlersResponse>
     {
-        public Task Handle(RequestValidationA request, CancellationToken cancellationToken)
+        public Task<HandlersResponse> Handle(RequestValidationA request, CancellationToken cancellationToken)
         {
-            //Do validation for request A
+            //Do all the validations for Request A
 
-            return Task.CompletedTask;
+
+            return Task.FromResult(new HandlersResponse(true));
         }
     }
+
 }

@@ -8,7 +8,7 @@ namespace Poc.MediatR.Controllers
     [Route("[controller]")]
     public class ExternalValidationController : ControllerBase
     {
-       
+
         private readonly ILogger<ExternalValidationController> _logger;
         private IMediator mediator;
 
@@ -19,10 +19,11 @@ namespace Poc.MediatR.Controllers
         }
 
         [HttpPost()]
-        public IActionResult Post([FromBody] RequestBase request)
+        public async Task<IActionResult> Post([FromBody] RequestBase request)
         {
-            mediator.Send(request);
-            return Ok();
+            var response = await mediator.Send(request);
+
+            return Ok(response);
         }
     }
 }
