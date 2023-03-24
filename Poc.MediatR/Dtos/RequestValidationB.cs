@@ -2,7 +2,7 @@
 
 namespace Poc.MediatR.Dtos
 {
-    public class RequestValidationB : RequestBase, IRequest<HandlersResponse>
+    public class RequestValidationB : RequestBase
     {
         public string Name { get; set; } = string.Empty;
     }
